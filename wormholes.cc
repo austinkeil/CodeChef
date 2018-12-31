@@ -10,31 +10,20 @@ int main() {
     int n, x, y;
     cin >> n >> x >> y;
 
-    vector<pair<int, int> > tests;
-    vector<int> v, w;
+    vector<pair<int, int> > tests(n);
+    vector<int> v(x), w(y);
     int t1, t2;
     for (int i = 0; i < n; ++i) {
         cin >> t1 >> t2;
-        tests.push_back(make_pair(t1, t2));
+        tests[i].first = t1;
+        tests[i].second = t2;
     }
 
-    string s;
-    getline(cin, s);    // gets the leftover space
-    getline(cin, s);    // gets the line
-
-    // store v-times into vector v
-    stringstream ss(s);
-    string token;
-    while (ss >> token) {
-        v.push_back(stoi(token));
+    for (int i = 0; i < x; ++i) {
+        cin >> v[i];
     }
-
-    // store w-times into vector w
-    getline(cin, s);
-    ss.clear();
-    ss.str(s);
-    while(ss >> token) {
-        w.push_back(stoi(token));
+    for (int i = 0; i < y; ++i) {
+        cin >> w[i];
     }
 
     sort(v.begin(), v.end());
